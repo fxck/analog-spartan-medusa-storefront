@@ -21,7 +21,7 @@ export class MedusaService {
 
   constructor() {
     this.#sdk = new Medusa({
-      debug: process.env['NODE_ENV'] === 'development',
+      debug: import.meta.env['NODE_ENV'] === 'development',
       ...this.#medusaConfig
     });
   }

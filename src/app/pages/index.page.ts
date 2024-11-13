@@ -1,18 +1,23 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { HlmButtonDirective } from '../../../libs/ui/ui-button-helm/src/lib/hlm-button.directive';
 import { MedusaService } from '../services/medusa.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    HlmButtonDirective
-  ],
   template: `
-    <h1 class="pb-4">Analog.js x Spartan x Medusa.js x Zerops.io</h1>
+    <h1 class="text-3xl font-bold text-white-900 pb-4">Analog.js x Spartan x Medusa.js x Zerops.io</h1>
 
-    <button hlmBtn>Test button</button>
+    @for (item of products()?.products; track item.id) {
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold text-white-800 mb-2">{{ item.title }}</h3>
+        <img
+          [src]="item.thumbnail"
+          [alt]="item.title"
+          class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+        />
+      </div>
+    }
   `,
   styles: `
 

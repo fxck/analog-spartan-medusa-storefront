@@ -26,7 +26,7 @@ export class MedusaService {
     });
   }
 
-  items$() {
+  productList$() {
     return from(this.#sdk.store.product.list());
   }
 }

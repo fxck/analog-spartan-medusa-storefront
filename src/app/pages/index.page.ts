@@ -1,5 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { HlmButtonDirective } from '../../../libs/ui/ui-button-helm/src/lib/hlm-button.directive';
+import { MedusaService } from '../services/medusa.service';
 
 @Component({
   selector: 'app-home',
@@ -17,9 +19,6 @@ import { HlmButtonDirective } from '../../../libs/ui/ui-button-helm/src/lib/hlm-
   `,
 })
 export default class HomeComponent {
-  count = signal(0);
-
-  increment() {
-    this.count.update((count) => count + 1);
-  }
+  #medusa = inject(MedusaService);
+  products = toSignal(this.#medusa.productList$());
 }

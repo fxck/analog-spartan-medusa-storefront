@@ -1,0 +1,15 @@
+zerops:
+  - setup: analogstore
+    build:
+      base: nodejs@22
+      buildCommands:
+        - npm i
+        - npm run build
+      deployFiles:
+        - dist
+    run:
+      base: nodejs@22
+      ports:
+        - port: 3000
+          httpSupport: true
+      start: node dist/analog/server/index.mjs

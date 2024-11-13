@@ -11,6 +11,9 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     mainFields: ['module'],
   },
+  ssr: {
+    noExternal: ['@medusajs/js-sdk']
+  },
   plugins: [analog()],
   test: {
     globals: true,

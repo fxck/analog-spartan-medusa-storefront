@@ -6,6 +6,7 @@ import {
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideFileRouter, requestContextInterceptor } from '@analogjs/router';
+import { provideMedusaConfig } from './services/medusa.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,5 +17,8 @@ export const appConfig: ApplicationConfig = {
       withInterceptors([requestContextInterceptor])
     ),
     provideClientHydration(),
+    provideMedusaConfig({
+      baseUrl: process.env['asdsad'] || ''
+    })
   ],
 };

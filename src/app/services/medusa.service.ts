@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, InjectionToken } from '@angular/core';
-import /* Medusa, */ { Config } from '@medusajs/js-sdk';
-import { from } from 'rxjs';
+// import Medusa from '@medusajs/js-sdk';
+import{ Config } from '@medusajs/js-sdk';
+import{ StoreProductListResponse } from '@medusajs/types';
+// import { from } from 'rxjs';
 
 export const MEDUSA_CONFIG = new InjectionToken<Config>('MEDUSA_CONFIG');
 
@@ -31,7 +33,7 @@ export class MedusaService {
   // }
 
   productList$() {
-    return this.#http.get(
+    return this.#http.get<StoreProductListResponse>(
       `${this.#medusaConfig.baseUrl}/store/products`,
       {
         headers: {

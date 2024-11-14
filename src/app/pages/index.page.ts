@@ -22,7 +22,7 @@ import { NgOptimizedImage } from '@angular/common'
               [alt]="item.title"
               width="600"
               height="600"
-              class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+              class="rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
             />
           </div>
         }

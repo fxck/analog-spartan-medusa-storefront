@@ -1,4 +1,4 @@
-import crypto from 'crypto';
+import { createHmac } from 'crypto';
 import {
   FocusPoint,
   Gravity,
@@ -50,7 +50,7 @@ export const sign = (
   target: string,
   size: number = 32
 ) => {
-  const hmac = crypto.createHmac('sha256', hexDecode(key));
+  const hmac = createHmac('sha256', hexDecode(key));
   hmac.update(hexDecode(salt));
   hmac.update(target);
   return urlSafeEncode(hmac.digest().slice(0, size));

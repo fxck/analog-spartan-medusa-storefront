@@ -23,7 +23,7 @@
               "mode": "development"
             },
             "production": {
-              "sourcemap": false,
+              "sourcemap": true,
               "mode": "production"
             }
           }

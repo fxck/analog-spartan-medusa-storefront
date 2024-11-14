@@ -6,6 +6,9 @@ zerops:
         VITE_MEDUSA_INSTANCE_URL: ${medusa_zeropsSubdomain}
         VITE_MEDUSA_PUBLISHABLE_KEY: ${medusa_CHANNEL_PUBLISHABLE_KEY}
         VITE_PUBLIC_BASE_URL: ${RUNTIME_zeropsSubdomain}
+        IMGPROXY_KEY: ${imgproxy_IMGPROXY_KEY}
+        IMGPROXY_SALT: ${imgproxy_IMGPROXY_SALT}
+        IMGPROXY_URL: ${imgproxy_zeropsSubdomain}
       buildCommands:
         - npm i
         - npm run build
@@ -17,9 +20,6 @@ zerops:
         VITE_MEDUSA_INSTANCE_URL: ${medusa_zeropsSubdomain}
         VITE_MEDUSA_PUBLISHABLE_KEY: ${medusa_CHANNEL_PUBLISHABLE_KEY}
         VITE_PUBLIC_BASE_URL: ${zeropsSubdomain}
-        IMGPROXY_KEY: ${imgproxy_IMGPROXY_KEY}
-        IMGPROXY_SALT: ${imgproxy_IMGPROXY_SALT}
-        IMGPROXY_URL: ${imgproxy_zeropsSubdomain}
       ports:
         - port: 3000
           httpSupport: true
